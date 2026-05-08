@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+:root {
+  /* Fonts */
+  --font-primary: 'Tajawal', sans-serif;
+  --font-arabic: 'Tajawal', sans-serif;
+
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  /* Shared Defaults */
+  --border-radius: 16px;
+  --nav-height: 70px;
+}
+
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent: #0070f3;
+  --accent-glow: rgba(0, 112, 243, 0.1);
+  --border-color: #e5e7eb;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #050505;
+  --bg-secondary: #0f0f0f;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --accent: #facc15; /* Yellow/Gold for software look */
+  --accent-glow: rgba(250, 204, 21, 0.1);
+  --border-color: #1f2937;
+  --card-bg: #0a0a0a;
+  --nav-bg: rgba(5, 5, 5, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+  overflow-x: hidden;
+  position: relative;
+}
+
+[dir='rtl'] body {
+  font-family: var(--font-arabic), var(--font-primary);
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.glass {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.8s ease forwards;
+}
